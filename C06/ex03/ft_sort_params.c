@@ -3,39 +3,69 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_params.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slaarous <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: slaarous <slaarous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/25 20:02:54 by slaarous          #+#    #+#             */
-/*   Updated: 2026/08/25 20:52:26 by slaarous         ###   ########.fr       */
+/*   Updated: 2026/08/28 21:20:45 by slaarous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_sort_arg(int *tab)
+#include <unistd.h>
+
+void	ft_putstr(char *str)
 {
-	int i;
-	int j;
-	int temp;
+	int	i;
 
 	i = 0;
-	while(i < size)
+	while (str[i])
 	{
-		j = 0;
-		while(j < size - 1)
+		write(1, &str[i], 1);
+		i++;
+	}
+	write(1, "\n", 1);
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
+}
+
+void	ft_swap_arg(char **s1, char **s2)
+{
+	char	*tmp;
+
+	tmp = *s1;
+	*s1 = *s2;
+	*s2 = tmp;
+}
+
+int	main(int argc, char **argv)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	while (i < argc)
+	{
+		j = i + 1;
+		while (j < argc)
 		{
-			if (tab[j] > tab[j + 1])
-			{
-				temp = tab[j];
-				tab[j] = tab[j + 1];
-				tab[j + 1] = temp;
-			}
+			if (ft_strcmp(argv[i], argv[j]) > 0)
+				ft_swap_arg(&argv[i], &argv[j]);
 			j++;
 		}
 		i++;
 	}
-}
-
-int main(int argc, char **argv)
-{
-	ft_sort_arg(&argv[j][i]);
-	i++;	
+	i = 1;
+	while (i < argc)
+	{
+		ft_putstr(argv[i]);
+		i++;
+	}
+	return (0);
 }

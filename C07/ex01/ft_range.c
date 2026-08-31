@@ -1,34 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slaarous <slaarous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/25 17:19:48 by slaarous          #+#    #+#             */
-/*   Updated: 2026/08/27 13:47:07 by slaarous         ###   ########.fr       */
+/*   Created: 2026/08/30 11:11:08 by slaarous          #+#    #+#             */
+/*   Updated: 2026/08/31 11:45:57 by slaarous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_is_prime(int nb)
-{
-	int	i;
+#include <stdlib.h>
 
-	if (nb < 2)
-		return (0);
-	i = 2;
-	while (i < nb)
+int	*ft_range(int min, int max)
+{
+	int	size;
+	int	i;
+	int	*arr;
+
+	if (min >= max)
+		return (NULL);
+	size = max - min;
+	arr = malloc(sizeof(int) * size);
+	if (arr == NULL)
+		return (NULL);
+	i = 0;
+	while (i < size)
 	{
-		if (nb % i == 0)
-			return (0);
+		arr[i] = min + i;
 		i++;
 	}
-	return (1);
+	return (arr);
 }
 
-int	ft_find_next_prime(int nb)
+/*
+#include<stdio.h>
+
+int main(void)
 {
-	while (!ft_is_prime(nb))
-		nb++;
-	return (nb);
+	int *arr;
+	int i;
+
+	arr = ft_range(7, 2);
+
+	i = 0;
+	while (i < 5)
+	{
+		printf("%d\n", arr[i]);
+		i++;
+	}
+	free(arr);
+	return (0);
 }
+*/

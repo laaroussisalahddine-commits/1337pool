@@ -3,34 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slaarous <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: slaarous <slaarous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/25 18:21:22 by slaarous          #+#    #+#             */
-/*   Updated: 2026/08/25 18:41:01 by slaarous         ###   ########.fr       */
+/*   Updated: 2026/08/28 21:19:02 by slaarous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
+#include <unistd.h>
 
-int main(int argc , char **argv)
+int	main(int argc, char **argv)
 {
-	int i;
-	int j;
-
+	int	i;
+	int	j;
 
 	if (argc > 1)
 	{
-		j = 1;	
-		while(j < argc)
+		j = 1;
+		while (j < argc)
 		{
 			i = 0;
-			while(argv[j][i])
+			while (argv[j][i])
 			{
-				write(1,&argv[j][i],1);
+				write(1, &argv[j][i], 1);
 				i++;
 			}
+			write(1, "\n", 1);
 			j++;
-			write(1,"\n",1);
 		}
-	}	
+	}
+	return (0);
 }

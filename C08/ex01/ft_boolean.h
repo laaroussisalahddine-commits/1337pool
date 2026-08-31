@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
+/*   ft_boolean.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slaarous <slaarous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/25 17:19:48 by slaarous          #+#    #+#             */
-/*   Updated: 2026/08/27 13:47:07 by slaarous         ###   ########.fr       */
+/*   Created: 2026/08/31 13:09:12 by slaarous          #+#    #+#             */
+/*   Updated: 2026/08/31 13:27:04 by slaarous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_is_prime(int nb)
-{
-	int	i;
+#ifndef FT_BOOLEAN_H
+# define FT_BOOLEAN_H
 
-	if (nb < 2)
-		return (0);
-	i = 2;
-	while (i < nb)
-	{
-		if (nb % i == 0)
-			return (0);
-		i++;
-	}
-	return (1);
-}
+# include <unistd.h>
 
-int	ft_find_next_prime(int nb)
-{
-	while (!ft_is_prime(nb))
-		nb++;
-	return (nb);
-}
+typedef int	t_bool;
+
+# define TRUE 1
+# define FALSE 0
+# define EVEN(nbr) ((nbr) % 2 == 0)
+# define EVEN_MSG "I have an even number of arguments.\n"
+# define ODD_MSG "I have an odd number of arguments.\n"
+# define SUCCESS 0
+
+#endif
