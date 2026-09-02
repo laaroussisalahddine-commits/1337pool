@@ -6,7 +6,7 @@
 /*   By: slaarous <slaarous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 09:29:42 by slaarous          #+#    #+#             */
-/*   Updated: 2026/08/24 14:30:17 by slaarous         ###   ########.fr       */
+/*   Updated: 2026/09/01 13:21:29 by slaarous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,3 @@ char	*ft_strcapitalize(char *str)
 	}
 	return (str);
 }
-
-int main(void)
-{
-    char str[] = "hi, salamelikom+myfreindes";
-
-    ft_strcapitalize(str);
-
-    write(1, str, sizeof(str) - 1);
-    write(1, "\n", 1);
-
-    return (0);
-}
-

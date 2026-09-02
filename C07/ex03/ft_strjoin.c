@@ -6,7 +6,7 @@
 /*   By: slaarous <slaarous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 11:13:58 by slaarous          #+#    #+#             */
-/*   Updated: 2026/08/31 11:31:23 by slaarous         ###   ########.fr       */
+/*   Updated: 2026/09/01 11:07:02 by slaarous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,17 @@ void	ft_append(char *dest, char *src)
 {
 	int	i;
 	int	pos;
+	int	j;
 
 	pos = ft_len(dest);
 	i = 0;
+	j = pos + i;
 	while (src[i])
 	{
-		dest[pos + i] = src[i];
+		dest[j] = src[i];
 		i++;
 	}
-	dest[pos + i] = '\0';
+	dest[j] = '\0';
 }
 
 char	*ft_empty(void)
